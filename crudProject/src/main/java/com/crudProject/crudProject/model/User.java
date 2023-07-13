@@ -1,27 +1,31 @@
 package com.crudProject.crudProject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "researchtile", nullable = false)
     private String researchtile;
+
+    @Column(name = "researchpaper")
     private String researchpaper;
+
+    @Column(name = "paperlink")
     private String paperlink;
 
     public User(){
 
     }
     public User(String researchtile, String researchpaper, String paperlink) {
+        super();
         this.researchtile = researchtile;
         this.researchpaper = researchpaper;
         this.paperlink = paperlink;
     }
-
     public Long getId() {
         return id;
     }
